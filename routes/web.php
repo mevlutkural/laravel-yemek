@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Dashboard\AuthController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
+
+Route::get('/dashboard/login', [AuthController::class, 'loginForm'])->name('loginForm');
+Route::post('/dashboard/login', [AuthController::class, 'login'])->name('login');
+Route::get('/dashboard/logout', [AuthController::class, 'logout']);
+
+Route::prefix('dashboard')->middleware('auth:web')->group(function(){
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::resource('/users', UserController::class);
+});
+
+
