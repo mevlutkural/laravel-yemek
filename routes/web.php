@@ -26,6 +26,6 @@ Route::get('/dashboard/logout', [AuthController::class, 'logout']);
 Route::prefix('dashboard')->middleware('auth:web')->group(function(){
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::resource('/users', UserController::class);
+    Route::get('/users/{user}/change-password', [UserController::class, 'passwordForm']);
+    Route::patch('/users/{user}/change-password', [UserController::class, 'changePassword']);
 });
-
-

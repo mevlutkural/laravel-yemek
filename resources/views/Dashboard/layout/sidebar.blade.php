@@ -105,23 +105,18 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-people"></i>
+                <i class="menu-icon fa-solid fa-users"></i>
                 <div data-i18n="Account Settings">Kullanıcılar</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="pages-account-settings-account.html" class="menu-link">
-                        <div data-i18n="Users">Account</div>
+                <li class="menu-item {{ request()->is('dashboard/users/create') ? 'active' : '' }}">
+                    <a href="{{ route('users.create') }}" class="menu-link">
+                        <div data-i18n="Users">Kullanıcı Oluştur</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="pages-account-settings-notifications.html" class="menu-link">
-                        <div data-i18n="Notifications">Notifications</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="pages-account-settings-connections.html" class="menu-link">
-                        <div data-i18n="Connections">Connections</div>
+                <li class="menu-item {{ request()->is('dashboard/users') ? 'active' : '' }}">
+                    <a href="{{ route('users.index') }}" class="menu-link">
+                        <div data-i18n="Connections">Kullanıcılar</div>
                     </a>
                 </li>
             </ul>

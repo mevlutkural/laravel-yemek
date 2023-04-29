@@ -1,1 +1,11 @@
-import './bootstrap';
+import "./bootstrap";
+import "bootstrap/dist/js/bootstrap.bundle";
+import "@popperjs/core/dist/umd/popper";
+import "@fortawesome/fontawesome-free";
+import "@fortawesome/fontawesome-free/css/all.css";
+import $ from "jquery";
+import "datatables.net-dt";
+window.$ = $;
+import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+import axios from "axios";
+import "./utils/DeleteItem";
